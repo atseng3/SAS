@@ -1,0 +1,17 @@
+<h1>This is the Users show page</h1>
+<h2>My info:</h2>
+<%= link_to "edit", edit_user_url %><br>
+<%= @user.name %><br>
+<%= @user.position.capitalize %><br>
+<%= @user.email %><br>
+<%= @user.phone_number %><br>
+<% if @user.position == 'manager' %>
+<h4>My Staff: </h4>
+	<% @user.staff.each do |member| %>
+		<%= link_to member.name, user_url(member) %><%= button_to "Delete Member", user_url(member), :method => :delete %>
+	<% end %>
+	<%= link_to "add staff", new_user_url %>
+<% end %>
+
+
+<button type="button" class="btn btn-default">asdf</button>

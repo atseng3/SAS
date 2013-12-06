@@ -1,0 +1,17 @@
+class CreateUsers < ActiveRecord::Migration
+  def change
+    create_table :users do |t|
+      t.string :name, :null => false
+      t.string :email, :null => false
+      t.string :phone_number, :null => false
+      t.string :position, :null => false
+      t.integer :manager_id
+      t.string :session_token, :null => false
+      
+      t.timestamps
+    end
+    
+    add_index :users, :email, :unique => true
+    add_index :users, :session_token, :unique => true
+  end
+end
