@@ -15,13 +15,20 @@ module SessionsHelper
   
   def logout_current_user!
     current_user.reset_session_token!
-    session_token[:session_token] = nil
+    session[:session_token] = nil
   end
   
   def require_current_user!
     if current_user.nil?
       flash[:danger] = ["Please log in to Continue"]
       redirect_to new_session_url
+    end
+  end
+  
+  def require_manager!
+    unless current_user.position == 'manager'
+      flash[:danger] = ["You are not authorized to make this action"]
+      redirect_to users_url
     end
   end
 end

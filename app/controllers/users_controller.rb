@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  # before_filter :require_current_user!
-  # before_filter :require_manager, :only => [:create, :update, :destroy]
+  before_filter :require_current_user!
+  before_filter :require_manager!, :only => [:create, :edit, :update, :destroy]
   
   def index
     @users = User.all

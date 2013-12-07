@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
     
     if user.nil?
       flash[:danger] = ["Couldn't find this user"]
+      redirect_to new_session_url
     else
       self.current_user = user
       flash[:success] = ["Successfully logged in as " + user.name]
@@ -20,6 +21,6 @@ class SessionsController < ApplicationController
   def destroy
     logout_current_user!
     flash[:success] = ["Successfully logged out!"]
-    redirect_to root_url
+    redirect_to new_session_url
   end
 end
