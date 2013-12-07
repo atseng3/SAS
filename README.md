@@ -10,7 +10,7 @@ Basic features include:
 * Delete
 their staff members
 
-### Staff Members
+## Staff Members
 Only able to READ their own managers.
 
 ## Note
