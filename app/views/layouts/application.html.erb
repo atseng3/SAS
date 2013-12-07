@@ -8,14 +8,16 @@
 </head>
 <body>
 	<div class="container">
-	
-	<% if logged_in? %>
-		<%= "Welcome! " + current_user.name %>
-		<%= button_to "Signout", session_url, :method => :delete, :class => "btn btn-primary" %>
-	<% else %>
-		<%= link_to "Sign In", new_session_url %>
-		<%= link_to "Sign Up", new_user_url %>
-	<% end %>
+		<div class="page-header"><h1>Welcome to my SAS APP!</h1>
+				<% if logged_in? %>
+					<%= "Welcome! " + current_user.name %>
+					<%= button_to "Signout", session_url, :method => :delete, :class => "btn btn-primary" %>
+				<% else %>
+					<%= link_to "Sign In", new_session_url %> or
+					<%= link_to "Sign Up", new_user_url %>
+				<% end %>
+				<br>
+		</div>
 	
 	<% if !flash.empty? %>
 		<% flash.each do |k, v| %>

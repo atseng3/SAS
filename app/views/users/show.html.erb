@@ -8,8 +8,11 @@
 	<h4>My Staff: </h4>
 	<h5>You have <%= @user.staff.count %> staff members</h5>
 		<% @user.staff.each do |member| %>
-			<%= link_to member.name, user_url(member) %><%= button_to "Delete Member", user_url(member), :method => :delete, :class => "btn btn-danger pull-right" %>
+		<li><a href="<%= user_url(member) %>"><%= member.name %></a><%= button_to "Delete Member", user_url(member), :method => :delete, :class => "btn-mini btn-danger" %>
+		</li>
 		<% end %>
 		<%= link_to "add staff", new_user_url %>
+	<% else %>
+	<%= "My Manager is " + @user.manager.name %>
 	<% end %>
 	<br>
