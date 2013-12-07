@@ -2,8 +2,8 @@
 This is my SAS application for the LocBox coding challenge.
 
 Basic features include:
-### Managers
-## Ability to
+## Managers
+### Ability to
 * Create
 * Read
 * Update
